@@ -1,3 +1,5 @@
 /.idea/
 /vendor/
 /test/rest-client.env.json
+/log/
+!/log/.gitkeep

@@ -1,0 +1,78 @@
+{
+  "orders": {
+    "order": [
+      {
+        "storeName": "kovacsgergely",
+        "innerId": "5929",
+        "firstname": "teszt vezet\u00e9k",
+        "lastname": "wse kereszt",
+        "phone": "+36301231234",
+        "fax": "",
+        "email": "wse.teszt.g@gmail.com",
+        "shippingFirstname": "teszt vezet\u00e9k",
+        "shippingLastname": "wse kereszt",
+        "shippingCompany": "c\u00e9g",
+        "shippingAddress1": "c\u00edm1",
+        "shippingAddress2": "c\u00edm2",
+        "shippingCity": "Budapest XXI.",
+        "shippingCountryName": "Magyarorsz\u00e1g",
+        "shippingZoneName": "",
+        "shippingPostcode": "1212",
+        "paymentFirstname": "teszt vezet\u00e9k",
+        "paymentLastname": "wse kereszt",
+        "paymentCompany": "c\u00e9g",
+        "paymentAddress1": "c\u00edm1",
+        "paymentAddress2": "c\u00edm2",
+        "paymentCity": "Budapest XXI.",
+        "paymentCountryName": "Magyarorsz\u00e1g",
+        "paymentZoneName": "",
+        "shippingMethodName": "",
+        "shippingNetPrice": 0,
+        "shippingGrossPrice": 0,
+        "paymentMethodName": "",
+        "paymentNetPrice": 0,
+        "paymentGrossPrice": 0,
+        "couponCode": "",
+        "couponGrossPrice": null,
+        "languageId": "1",
+        "languageCode": "hu",
+        "comment": "",
+        "total": "290.0000",
+        "totalGross": "368.3000",
+        "taxPrice": "78.3000",
+        "currency": "HUF",
+        "paymentPostcode": "1212",
+        "orderCreditCard": {
+          "date": "",
+          "transactionId": "",
+          "licenceNumber": null,
+          "bankAnswerCode": "",
+          "bankAnswer": ""
+        },
+        "orderHistory": {
+          "status": "",
+          "statusText": "",
+          "comment": ""
+        },
+        "customerVipListCardNumber": {
+          "vipListCardNumber": null
+        },
+        "orderProducts": {
+          "orderProduct": [
+            {
+              "innerId": "124",
+              "name": "100 db \u00f6sszek\u00f6t\u0151 kapocs, gumikark\u00f6t\u0151 k\u00e9sz\u00edt\u0151",
+              "sku": "BW-S5-másolata-1",
+              "price": "290.0000",
+              "currency": "HUF",
+              "taxRate": "27.0000",
+              "quantity": "1",
+              "image": "https:\/\/kovacsgergely.shoprenter.hu\/custom\/kovacsgergely\/image\/data\/product\/c6c0563abcbf0c0f04f73209fab0a9c3.jpg",
+              "category": "alkat1"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
