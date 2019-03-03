@@ -3,6 +3,7 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
+use ShopRenterApi\OrderDataApi;
 use WarrantyCard\WarrantyCard;
 
 
@@ -11,16 +12,24 @@ if(empty($_POST["data"])) {
 }
 
 $data = \json_decode($_POST["data"], true);
-$orderData = $data["orders"]["order"][0];
+$dataFromHook = $data["orders"]["order"][0];
 
-$warranty = new WarrantyCard(new \TCPDF(), $orderData);
+$orderDataApi = new OrderDataApi();
+
+$dataFromApi = $orderDataApi->getOrderData($dataFromHook["innerId"]);
+
+$dataFromHook["dateCreated"] = $dataFromApi["dateCreated"];
+
+unset($dataFromApi);
+
+$warranty = new WarrantyCard(new \TCPDF(), $dataFromHook);
 $warranty->generateWarrantyCard();
 
 $mail = new PHPMailer();
 try {
     $mail->isMail();
     $mail->setFrom("asdf@asdf.hu", "asdf asdf");
-    $mail->addAddress($orderData["email"]);
+    $mail->addAddress($dataFromHook["email"]);
 
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Here is the subject';
