@@ -1,5 +1,10 @@
 {
-  "shopUrl": "https://kovacsgergely.api.shoprenter.hu",
+  "emailFrom": "test@test.hu",
+  "emailFromName": "Test Store",
+
+  "warrantyFilename": "Warranty -őűíáé- [innerId].pdf",
+
+  "srApiUrl": "https://kovacsgergely.api.shoprenter.hu",
   "apiUsername": "kGergely",
   "apiPassword": "2d4bdff206b7f4e863acfbf2329c54d0"
 }

@@ -2,6 +2,8 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
+use Config\Config;
+use Email\Email;
 use PHPMailer\PHPMailer\PHPMailer;
 use ShopRenterApi\OrderDataApi;
 use WarrantyCard\WarrantyCard;
@@ -14,7 +16,10 @@ if(empty($_POST["data"])) {
 $data = \json_decode($_POST["data"], true);
 $dataFromHook = $data["orders"]["order"][0];
 
-$orderDataApi = new OrderDataApi();
+$config = new Config();
+$configData = $config->getConfig();
+
+$orderDataApi = new OrderDataApi($config);
 
 $dataFromApi = $orderDataApi->getOrderData($dataFromHook["innerId"]);
 
@@ -25,20 +30,23 @@ unset($dataFromApi);
 $warranty = new WarrantyCard(new \TCPDF(), $dataFromHook);
 $warranty->generateWarrantyCard();
 
+$email = new Email($dataFromHook);
+
 $mail = new PHPMailer();
+$mail->CharSet = "UTF-8";
 try {
     $mail->isMail();
-    $mail->setFrom("asdf@asdf.hu", "asdf asdf");
+    $mail->setFrom($configData["emailFrom"], $configData["emailFromName"]);
     $mail->addAddress($dataFromHook["email"]);
 
     $mail->isHTML(true);                                  // Set email format to HTML
-    $mail->Subject = 'Here is the subject';
-    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    $mail->Subject = $email->getTemplate("Subject.txt");
+    $mail->Body    = $email->getTemplate("EmailHtml.html");
+    $mail->AltBody = $email->getTemplate("EmailText.txt");
 
     $mail->addStringAttachment(
-        $warranty->getPdf()->Output("warranty.pdf", "E"),
-        "warranty.pdf"
+        $warranty->getPdf()->Output("warranty.pdf", "S"),
+        $email->placeHolderReplacer($configData["warrantyFilename"])
     );
 
     $mail->send();

@@ -9,10 +9,12 @@
 namespace ShopRenterApi;
 
 
+use Config\Config;
+
 class OrderDataApi
 {
 
-    protected $shopUrl;
+    protected $srApiUrl;
 
     protected $apiCall;
 
@@ -20,10 +22,10 @@ class OrderDataApi
      * OrderDataApi constructor.
      * @param ApiCall $apiCall
      */
-    public function __construct()
+    public function __construct(Config $config)
     {
-        $configData = \json_decode(file_get_contents(__DIR__ . "/../../config.json"), true);
-        $this->shopUrl = $configData["shopUrl"];
+        $configData = $config->getConfig();
+        $this->srApiUrl = $configData["srApiUrl"];
         $this->apiCall = new ApiCall($configData["apiUsername"], $configData["apiPassword"]);
     }
 
@@ -40,7 +42,7 @@ class OrderDataApi
     public function getOrderData($orderId)
     {
         try {
-            $this->apiCall->execute("GET", "{$this->shopUrl}/orders/{$this->getQuery($orderId)}");
+            $this->apiCall->execute("GET", "{$this->srApiUrl}/orders/{$this->getQuery($orderId)}");
             return $this->apiCall->getResponse()->getParsedResponseBody();
         } catch (\Exception $e) {
             throw new \Exception("Something went wrong!");
