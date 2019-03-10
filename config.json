@@ -4,7 +4,10 @@
 
   "warrantyFilename": "Warranty -őűíáé- [innerId].pdf",
 
-  "srApiUrl": "https://kovacsgergely.api.shoprenter.hu",
+  "srApiUrl": "http://kovacsgergely.api.shoprenter.hu",
   "apiUsername": "kGergely",
-  "apiPassword": "2d4bdff206b7f4e863acfbf2329c54d0"
+  "apiPassword": "2d4bdff206b7f4e863acfbf2329c54d0",
+
+  "defaultWarrantyTime": 18,
+  "productWarrantyAttributeId": 21
 }
