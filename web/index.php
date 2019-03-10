@@ -5,6 +5,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 use Config\Config;
 use Email\Email;
 use PHPMailer\PHPMailer\PHPMailer;
+use ShopRenterApi\Batch\BatchOrderProducts;
 use ShopRenterApi\Batch\BatchProductNumberAttributeValues;
 use ShopRenterApi\OrderDataApi;
 use WarrantyCard\WarrantyCard;
@@ -28,12 +29,16 @@ try {
 
     unset($dataFromApi);
 
-    $productNumberAttributes = new BatchProductNumberAttributeValues($config);
-    $productNumberAttributes->setAttributeId($configData["productWarrantyAttributeId"]);
-    $productNumberAttributes->setProductIds(
+    $realProductIds = new BatchOrderProducts($config);
+    $realProductIds->setOrderProductIds(
         array_map(function ($product) {
             return $product["innerId"];
         }, $dataFromHook["orderProducts"]["orderProduct"]));
+    $dataFromHook["realProductIds"] = $realProductIds->getRealProductIdsByOrder();
+
+    $productNumberAttributes = new BatchProductNumberAttributeValues($config);
+    $productNumberAttributes->setAttributeId($configData["productWarrantyAttributeId"]);
+    $productNumberAttributes->setProductIds(array_values($dataFromHook["realProductIds"]));
     $dataFromHook["warranties"] = $productNumberAttributes->getValuesByProductId();
     $dataFromHook["defaultWarrantyTime"] = $configData["defaultWarrantyTime"];
 
