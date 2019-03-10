@@ -35,8 +35,9 @@ class ProductList extends AbstractPdf implements IWarrantyCardPart
 
         foreach ($this->orderData["orderProducts"]["orderProduct"] as $orderProduct) {
 
-            $warrantyTime = isset($this->orderData["warranties"][$orderProduct["innerId"]])
-                ? $this->orderData["warranties"][$orderProduct["innerId"]]
+            $productId = $this->orderData["realProductIds"][$orderProduct["innerId"]];
+            $warrantyTime = isset($this->orderData["warranties"][$productId])
+                ? $this->orderData["warranties"][$productId]
                 : $this->orderData["defaultWarrantyTime"];
 
             $warrantyEnd = $this->getWarrantyEndDate(

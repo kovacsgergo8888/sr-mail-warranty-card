@@ -6,6 +6,7 @@ use Config\Config;
 use ShopRenterApi\Batch\BatchOrderProducts;
 use ShopRenterApi\Batch\BatchProductNumberAttributeValues;
 use ShopRenterApi\OrderDataApi;
+use WarrantyCard\WarrantyCard;
 
 $data = \json_decode(file_get_contents(__DIR__ . "/../test/test.json"), true);
 $dataFromHook = $data["orders"]["order"][0];
@@ -29,10 +30,10 @@ $dataFromHook["realProductIds"] = $realProductIds->getRealProductIdsByOrder();
 
 $productNumberAttributes = new BatchProductNumberAttributeValues($config);
 $productNumberAttributes->setAttributeId($configData["productWarrantyAttributeId"]);
-$productNumberAttributes->setProductIds(array_keys($dataFromHook["realProductIds"]));
+$productNumberAttributes->setProductIds(array_values($dataFromHook["realProductIds"]));
 $dataFromHook["warranties"] = $productNumberAttributes->getValuesByProductId();
 $dataFromHook["defaultWarrantyTime"] = $configData["defaultWarrantyTime"];
 
-$warranty = new \WarrantyCard\WarrantyCard(new \TCPDF(), $dataFromHook);
+$warranty = new WarrantyCard(new \TCPDF(), $dataFromHook);
 $warranty->generateWarrantyCard();
 $warranty->getPdf()->Output('asdf', 'I');

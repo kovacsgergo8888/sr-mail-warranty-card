@@ -53,7 +53,7 @@ class BatchOrderProducts extends AbstractBatch
             $body = $response["response"]["body"];
             $orderProductId = $this->getProductIdByHref($body["id"]);
             $productId = $this->getProductIdByHref($body["product"]["href"]);
-            $return[$productId] = $orderProductId;
+            $return[$orderProductId] = $productId;
 
         }
 
