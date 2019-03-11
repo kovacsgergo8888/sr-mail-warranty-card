@@ -8,6 +8,8 @@ use ShopRenterApi\Batch\BatchProductNumberAttributeValues;
 use ShopRenterApi\OrderDataApi;
 use WarrantyCard\WarrantyCard;
 
+error_reporting(E_ERROR);
+
 $data = \json_decode(file_get_contents(__DIR__ . "/../test/test.json"), true);
 $dataFromHook = $data["orders"]["order"][0];
 

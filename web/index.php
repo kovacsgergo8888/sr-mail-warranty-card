@@ -10,6 +10,7 @@ use ShopRenterApi\Batch\BatchProductNumberAttributeValues;
 use ShopRenterApi\OrderDataApi;
 use WarrantyCard\WarrantyCard;
 
+error_reporting(E_ERROR);
 
 if (empty($_POST["data"])) {
     exit("no data");

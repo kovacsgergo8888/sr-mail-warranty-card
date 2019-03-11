@@ -56,8 +56,12 @@ class WarrantyCard extends AbstractPdf
         $this->productList = new ProductList($this->pdf, $this->orderData);
         $this->productList->addPart();
 
+        $this->pdf->AddPage();
+
         $this->emptyTable = new EmptyTable($this->pdf, $this->orderData);
         $this->emptyTable->addPart();
+
+        $this->pdf->AddPage();
 
         $this->pdf->writeHTML(file_get_contents($this->templateDir . "/FixText.html"));
     }
