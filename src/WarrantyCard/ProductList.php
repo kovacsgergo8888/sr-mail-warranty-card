@@ -21,17 +21,15 @@ class ProductList extends AbstractPdf implements IWarrantyCardPart
     {
 
         $html =
-        "<br><br><h3>Termékek:</h3><br>
-        <table>
+        '<br><br><h3>Termékek:</h3><br>
+        <table cellpadding="5" border="1">
             <tr>
-                <td>Név</td>
-                <td>Garancia</td>
-                <td>Garancia lejárat</td>
-                <td>Cikkszám</td>
-                </tr>"
+                <td width="35%"><b>Név</b></td>
+                <td width="14%"><b>Garancia</b></td>
+                <td width="16%"><b>Garancia lejárat</b></td>
+                <td width="35%"><b>Cikkszám</b></td>
+                </tr>'
         ;
-
-        $orderCreated = new \DateTime($this->orderData["dateCreated"]);
 
         foreach ($this->orderData["orderProducts"]["orderProduct"] as $orderProduct) {
 
