@@ -36,7 +36,7 @@ class WarrantyCard extends AbstractPdf
         $this->pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
 
 // set margins
-        $this->pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $this->pdf->SetMargins(PDF_MARGIN_LEFT, 40, PDF_MARGIN_RIGHT);
         $this->pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
         $this->pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
 
