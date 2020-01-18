@@ -9,5 +9,11 @@
   "apiPassword": "2d4bdff206b7f4e863acfbf2329c54d0",
 
   "defaultWarrantyTime": 18,
-  "productWarrantyAttributeId": 21
+  "productWarrantyAttributeId": 21,
+  "orderStatusIds": [
+    {
+      "orderStatusId": 15,
+      "nameSpace": "WARRANTY_REPORT"
+    }
+  ]
 }

@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  php-dev:
+    build: "php-dev"
+    depends_on:
+      - composer
+    ports:
+    - 8889:8889
+    volumes:
+    - "../:/app"
+
+  composer:
+    build: "composer"
+    volumes:
+    - "../:/app"
