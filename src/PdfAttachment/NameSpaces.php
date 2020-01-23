@@ -8,5 +8,6 @@ use WarrantyReport\WarrantyReport;
 
 final class NameSpaces
 {
-    const WARRANTY_REPORT = WarrantyReport::class;
+    const WARRANTY_CARD = 'WarrantyCard';
+    const WARRANTY_REPORT = 'WarrantyReport';
 }

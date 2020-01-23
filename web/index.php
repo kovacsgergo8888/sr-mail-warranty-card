@@ -3,11 +3,9 @@
 require_once __DIR__ . "/../vendor/autoload.php";
 
 use Config\Config;
+use DataCollector\DataCollector;
 use Email\Email;
 use PHPMailer\PHPMailer\PHPMailer;
-use ShopRenterApi\Batch\BatchOrderProducts;
-use ShopRenterApi\Batch\BatchProductNumberAttributeValues;
-use ShopRenterApi\OrderDataApi;
 use WarrantyCard\WarrantyCard;
 
 error_reporting(E_ERROR);
@@ -17,31 +15,10 @@ if (empty($_POST["data"])) {
 }
 try {
     $data = \json_decode($_POST["data"], true);
-    $dataFromHook = $data["orders"]["order"][0];
-
     $config = new Config();
-    $configData = $config->getConfig();
 
-    $orderDataApi = new OrderDataApi($config);
-
-    $dataFromApi = $orderDataApi->getOrderData($dataFromHook["innerId"]);
-
-    $dataFromHook["dateCreated"] = $dataFromApi["dateCreated"];
-
-    unset($dataFromApi);
-
-    $realProductIds = new BatchOrderProducts($config);
-    $realProductIds->setOrderProductIds(
-        array_map(function ($product) {
-            return $product["innerId"];
-        }, $dataFromHook["orderProducts"]["orderProduct"]));
-    $dataFromHook["realProductIds"] = $realProductIds->getRealProductIdsByOrder();
-
-    $productNumberAttributes = new BatchProductNumberAttributeValues($config);
-    $productNumberAttributes->setAttributeId($configData["productWarrantyAttributeId"]);
-    $productNumberAttributes->setProductIds(array_values($dataFromHook["realProductIds"]));
-    $dataFromHook["warranties"] = $productNumberAttributes->getValuesByProductId();
-    $dataFromHook["defaultWarrantyTime"] = $configData["defaultWarrantyTime"];
+    $dataCollector = new DataCollector();
+    $dataFromHook = $dataCollector->collectData($data, $config);
 
     $warranty = new WarrantyCard(new \TCPDF(), $dataFromHook);
     $warranty->generateWarrantyCard();

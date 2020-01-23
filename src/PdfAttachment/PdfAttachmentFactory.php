@@ -5,6 +5,7 @@ namespace PdfAttachment;
 
 
 use Config\Config;
+use WarrantyReport\WarrantyReport;
 
 class PdfAttachmentFactory
 {
@@ -31,15 +32,14 @@ class PdfAttachmentFactory
                 return $config['nameSpace'];
             }
         }
-        return false;
+        return NameSpaces::WARRANTY_CARD;
     }
 
     public function getPdfAttachment()
     {
         $nameSpace = $this->getByConfig();
-        if ($nameSpace) {
-            $class = NameSpaces::$nameSpace;
-            return new NameSpaces::$nameSpace
+        if ($nameSpace == NameSpaces::WARRANTY_REPORT) {
+            return new WarrantyReport(new \TCPDF(), $dataFromHook);
         }
     }
 }
