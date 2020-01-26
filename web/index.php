@@ -21,7 +21,6 @@ try {
     $mailProvider = new EmailBuilderProvider($config, $dataFromHook);
     $mailBuilder = $mailProvider->getBuilder();
     $mail = $mailBuilder->buildEmail();
-    file_put_contents('inputData.log', json_encode($dataFromHook) . "\n", FILE_APPEND);
     $mail->send();
 } catch (\Exception $exception) {
     file_put_contents(__DIR__ . "/../log/" . date("Y-m-d.log") . '.log', $exception->getMessage() . "\n", FILE_APPEND);
