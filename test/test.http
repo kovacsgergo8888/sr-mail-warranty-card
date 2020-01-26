@@ -2,82 +2,145 @@ POST {{url}}
 Content-Type: application/x-www-form-urlencoded
 
 data={
-       "orders": {
-         "order": [
-           {
-             "storeName": "kovacsgergely",
-             "innerId": "5930",
-             "firstname": "teszt vezet\u00e9k",
-             "lastname": "wse kereszt",
-             "phone": "+36301231234",
-             "fax": "",
-             "email": "wse.teszt.g@gmail.com",
-             "shippingFirstname": "teszt vezet\u00e9k",
-             "shippingLastname": "wse kereszt",
-             "shippingCompany": "c\u00e9g",
-             "shippingAddress1": "c\u00edm1",
-             "shippingAddress2": "c\u00edm2",
-             "shippingCity": "Budapest XXI.",
-             "shippingCountryName": "Magyarorsz\u00e1g",
-             "shippingZoneName": "",
-             "shippingPostcode": "1212",
-             "paymentFirstname": "teszt vezet\u00e9k",
-             "paymentLastname": "wse kereszt",
-             "paymentCompany": "c\u00e9g",
-             "paymentAddress1": "c\u00edm1",
-             "paymentAddress2": "c\u00edm2",
-             "paymentCity": "Budapest XXI.",
-             "paymentCountryName": "Magyarorsz\u00e1g",
-             "paymentZoneName": "",
-             "shippingMethodName": "",
-             "shippingNetPrice": 0,
-             "shippingGrossPrice": 0,
-             "paymentMethodName": "",
-             "paymentNetPrice": 0,
-             "paymentGrossPrice": 0,
-             "couponCode": "",
-             "couponGrossPrice": null,
-             "languageId": "1",
-             "languageCode": "hu",
-             "comment": "",
-             "total": "290.0000",
-             "totalGross": "368.3000",
-             "taxPrice": "78.3000",
-             "currency": "HUF",
-             "paymentPostcode": "1212",
-             "orderCreditCard": {
-               "date": "",
-               "transactionId": "",
-               "licenceNumber": null,
-               "bankAnswerCode": "",
-               "bankAnswer": ""
-             },
-             "orderHistory": {
-               "status": "",
-               "statusText": "",
-               "comment": ""
-             },
-             "customerVipListCardNumber": {
-               "vipListCardNumber": null
-             },
-             "orderProducts": {
-               "orderProduct": [
-                 {
-                   "innerId": "124",
-                   "name": "100 db \u00f6sszek\u00f6t\u0151 kapocs, gumikark\u00f6t\u0151 k\u00e9sz\u00edt\u0151",
-                   "sku": "BW-S5-másolata-1",
-                   "price": "290.0000",
-                   "currency": "HUF",
-                   "taxRate": "27.0000",
-                   "quantity": "1",
-                   "image": "https:\/\/kovacsgergely.shoprenter.hu\/custom\/kovacsgergely\/image\/data\/product\/c6c0563abcbf0c0f04f73209fab0a9c3.jpg",
-                   "category": "alkat1"
-                 }
-               ]
-             }
-           }
-         ]
-       }
-     }
+  "orders": {
+    "order": [
+      {
+        "storeName": "kovacsgergely",
+        "innerId": "6065",
+        "innerResourceId": "orders\/b3JkZXItb3JkZXJfaWQ9NjA2NQ==",
+        "outerResourceId": "",
+        "firstname": "Kovacs",
+        "lastname": "Gergely",
+        "phone": "+36207468482",
+        "fax": "",
+        "email": "kovacs.gergely8888@gmail.com",
+        "shippingFirstname": "Kovacs",
+        "shippingLastname": "Gergely",
+        "shippingCompany": "",
+        "shippingAddress1": "Vigy\u00e1z\u00f3 Ferenc u.7.",
+        "shippingAddress2": "Dzsem P\u00e9ks\u00e9g-K\u00e1v\u00e9z\u00f3-Csak k\u00e9szp\u00e9nzes fizet\u00e9s!",
+        "shippingCity": "Budapest V. ker.",
+        "shippingCountryName": "Magyarorsz\u00e1g",
+        "shippingZoneName": "",
+        "shippingPostcode": "1051",
+        "paymentFirstname": "Kovacs",
+        "paymentLastname": "Gergely",
+        "paymentCompany": "c\u00e9g",
+        "paymentAddress1": "sfs",
+        "paymentAddress2": "uer98uri",
+        "paymentCity": "Hevesaranyos",
+        "paymentCountryName": "Magyarorsz\u00e1g",
+        "paymentZoneName": "Budapest",
+        "shippingMethodName": "gls csomagpont - 1051-CSOMAGPONT - Dzsem P\u00e9ks\u00e9g-K\u00e1v\u00e9z\u00f3-Csak k\u00e9szp\u00e9nzes fizet\u00e9s!",
+        "shippingNetPrice": 0,
+        "shippingGrossPrice": "1000",
+        "shippingInnerResourceId": "shippingModeExtend\/c2hpcHBpbmdNb2RlLWlkPTI1",
+        "paymentMethodName": "Banki \u00e1tutal\u00e1s",
+        "paymentNetPrice": 244.9286,
+        "paymentGrossPrice": "254",
+        "couponCode": "",
+        "couponGrossPrice": null,
+        "languageId": "1",
+        "languageCode": "hu",
+        "comment": "&lt;p style=&quot;box-sizing: content-box; margin: 0px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px;&quot;&gt;cikksz\u00e1m: BW-S6\n&lt;\/p&gt;\n&lt;p style=&quot;box-sizing: content-box; margin: 0px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px;&quot;&gt;hiba: nem sz\u00f3l a bal oldal\n&lt;\/p&gt;",
+        "total": "32782",
+        "totalGross": "41254",
+        "taxPrice": "4667",
+        "currency": "HUF",
+        "paymentPostcode": "3322",
+        "paymentTaxnumber": "sfdfd",
+        "orderCreditCard": {
+          "date": "",
+          "transactionId": "",
+          "licenceNumber": null,
+          "bankAnswerCode": "",
+          "bankAnswer": ""
+        },
+        "orderHistory": {
+          "status": "15",
+          "statusText": "gari int\u00e9z\u00e9s",
+          "comment": "&lt;p style=&quot;box-sizing: content-box; margin: 0px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px;&quot;&gt;cikksz\u00e1m: BW-S6\n&lt;\/p&gt;\n&lt;p style=&quot;box-sizing: content-box; margin: 0px; color: rgb(0, 0, 0); font-family: Arial, Helvetica, sans-serif; font-size: 12px;&quot;&gt;hiba: nem sz\u00f3l a bal oldal\n&lt;\/p&gt;"
+        },
+        "orderProducts": {
+          "orderProduct": [
+            {
+              "innerId": "1735",
+              "innerResourceId": "orderProducts\/b3JkZXJQcm9kdWN0LW9yZGVyX3Byb2R1Y3RfaWQ9MTczNQ==",
+              "outerResourceId": "",
+              "name": "&quot;A zene \u00f6r\u00f6k&quot; 2000 db-os puzzle",
+              "sku": "BW-S6",
+              "price": "1167",
+              "currency": "HUF",
+              "taxRate": "20.0000",
+              "quantity": "20",
+              "image": "https:\/\/kovacsgergely.shoprenter.hu\/custom\/kovacsgergely\/image\/data\/product\/CORE_I-K_GHZ_SKT-V_MB_CACHE_BOXED-i311274.jpg",
+              "category": "Rejtett, Beach bags, alkat1, alkat2, alkat3",
+              "volume": {
+                "height": "0.00",
+                "width": "0.00",
+                "length": "0.00",
+                "volumeUnit": [
+                  {
+                    "unit": "cm",
+                    "language": "hu"
+                  },
+                  {
+                    "unit": "cm",
+                    "language": "de"
+                  },
+                  {
+                    "unit": "cm",
+                    "language": "en"
+                  }
+                ]
+              },
+              "weight": {
+                "weight": "0.00",
+                "weightUnit": [
+                  {
+                    "unit": "kg",
+                    "language": "hu"
+                  },
+                  {
+                    "unit": "kg",
+                    "language": "de"
+                  },
+                  {
+                    "unit": "kg",
+                    "language": "en"
+                  }
+                ]
+              }
+            },
+            {
+              "innerId": "1736",
+              "innerResourceId": "orderProducts\/b3JkZXJQcm9kdWN0LW9yZGVyX3Byb2R1Y3RfaWQ9MTczNg==",
+              "outerResourceId": "",
+              "name": "&quot;Vitorl\u00e1sverseny&quot; 1000 db-os puzzle",
+              "sku": "BW-TC10",
+              "price": "2362",
+              "currency": "HUF",
+              "taxRate": "27.0000",
+              "quantity": "4",
+              "image": "https:\/\/kovacsgergely.shoprenter.hu\/custom\/kovacsgergely\/image\/no_image.jpg",
+              "category": "",
+              "volume": {
+                "height": "0.00",
+                "width": "0.00",
+                "length": "0.00",
+                "volumeUnit": []
+              },
+              "weight": {
+                "weight": "0.00",
+                "weightUnit": []
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+
 
 ###

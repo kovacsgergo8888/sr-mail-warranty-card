@@ -21,6 +21,14 @@ class Email
         $this->orderData = $orderData;
     }
 
+    /**
+     * @param string $templateDir
+     */
+    public function setTemplateDir($templateDir)
+    {
+        $this->templateDir = $templateDir;
+    }
+
     public function placeHolderReplacer($string)
     {
         foreach ($this->orderData as $key => $value) {

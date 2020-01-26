@@ -13,7 +13,8 @@
   "orderStatusIds": [
     {
       "orderStatusId": 15,
-      "nameSpace": "WARRANTY_REPORT"
+      "nameSpace": "WarrantyReport",
+      "pdf_filename": "Jegyzőkönyv.pdf"
     }
   ]
 }

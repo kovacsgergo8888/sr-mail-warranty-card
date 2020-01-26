@@ -15,7 +15,6 @@ class WarrantyReport
     {
         $this->pdf = $pdf;
 
-
 // set header and footer fonts
         $this->pdf->setHeaderFont([PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN]);
         $this->pdf->setFooterFont([PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA]);

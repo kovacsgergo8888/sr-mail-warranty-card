@@ -1,13 +1,15 @@
 <?php
 
 
-namespace PdfAttachment;
+namespace EmailBuilder;
 
 
 use Config\Config;
+use WarrantyCard\WarrantyCardEmailBuilder;
 use WarrantyReport\WarrantyReport;
+use WarrantyReport\WarrantyReportEmailBuilder;
 
-class PdfAttachmentFactory
+class EmailBuilderProvider
 {
     /**
      * @var Config
@@ -35,11 +37,18 @@ class PdfAttachmentFactory
         return NameSpaces::WARRANTY_CARD;
     }
 
-    public function getPdfAttachment()
+    /**
+     * @return WarrantyCardEmailBuilder|WarrantyReportEmailBuilder
+     * @throws \Exception
+     */
+    public function getBuilder()
     {
         $nameSpace = $this->getByConfig();
         if ($nameSpace == NameSpaces::WARRANTY_REPORT) {
-            return new WarrantyReport(new \TCPDF(), $dataFromHook);
+            return new WarrantyReportEmailBuilder($this->config, $this->dataFromHook);
+        } else if ($nameSpace == NameSpaces::WARRANTY_CARD) {
+            return new WarrantyCardEmailBuilder($this->config, $this->dataFromHook);
         }
+        throw new \Exception('namespace not found');
     }
 }

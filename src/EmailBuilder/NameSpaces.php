@@ -1,7 +1,7 @@
 <?php
 
 
-namespace PdfAttachment;
+namespace EmailBuilder;
 
 
 use WarrantyReport\WarrantyReport;
