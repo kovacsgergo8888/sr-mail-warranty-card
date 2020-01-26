@@ -1,1 +1,1 @@
-Warranty of orderőőőűűűű: #[innerId]
+Warranty report of orderőőőűűűű: #[innerId]

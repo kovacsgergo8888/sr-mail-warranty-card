@@ -33,6 +33,7 @@ class WarrantyReportEmailBuilder implements EmailBuilderInterface
 
     /**
      * @inheritDoc
+     * @throws \PHPMailer\PHPMailer\Exception
      */
     public function buildEmail()
     {
@@ -48,7 +49,7 @@ class WarrantyReportEmailBuilder implements EmailBuilderInterface
         $warrantyReport = new WarrantyReport(new \TCPDF(), $email->getTemplate('PDF.html'));
         $phpMailer->isMail();
         $phpMailer->CharSet = 'UTF-8';
-        $phpMailer->setFrom($this->config->get('emailFromName'));
+        $phpMailer->setFrom($this->config->get('emailFrom'), $this->config->get("emailFromName"));
         $phpMailer->addAddress($this->dataFromHook['email']);
         $phpMailer->isHTML(true);
         $phpMailer->Subject = $email->getTemplate('Email/Subject.txt');
