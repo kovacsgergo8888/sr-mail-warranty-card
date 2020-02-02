@@ -23,11 +23,15 @@ class WarrantyReportEmailBuilder implements EmailBuilderInterface
      * WarrantyReportEmailBuilder constructor.
      * @param Config $config
      * @param $dataFromHook
+     * @throws \Exception
      */
     public function __construct(Config $config, $dataFromHook)
     {
         $this->config = $config;
         $this->dataFromHook = $dataFromHook;
+
+        $dataDecorator = new DataDecorator();
+        $dataDecorator->addExtraData($this->dataFromHook);
     }
 
 
