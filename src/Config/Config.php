@@ -25,4 +25,9 @@ class Config
     {
         return $this->config;
     }
+
+    public function get($key)
+    {
+        return $this->config[$key];
+    }
 }
