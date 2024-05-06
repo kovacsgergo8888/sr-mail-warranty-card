@@ -27,23 +27,25 @@ class ProductList extends AbstractPdf implements IWarrantyCardPart
                 <td width="35%"><b>Név</b></td>
                 <td width="14%"><b>Garancia</b></td>
                 <td width="16%"><b>Garancia lejárat</b></td>
-                <td width="35%"><b>Cikkszám</b></td>
+                <td width="20%"><b>Cikkszám</b></td>
+                <td width="15%">Bruttó ár</td>
                 </tr>'
         ;
 
         foreach ($this->orderData["orderProducts"]["orderProduct"] as $orderProduct) {
 
             $productId = $this->orderData["realProductIds"][$orderProduct["innerId"]];
+            
+            $grossPrice = $this->calculateGrossPrice($orderProduct);
+
             $warrantyTime = isset($this->orderData["warranties"][$productId])
                 ? $this->orderData["warranties"][$productId]
-                : $this->orderData["defaultWarrantyTime"];
+                : $this->getDefaultWarrantyTime($grossPrice);
 
             $warrantyEnd = $this->getWarrantyEndDate(
                 new \DateTime($this->orderData["dateCreated"]),
                 $warrantyTime
             )->format("Y. m. d.");
-
-
 
             $html .=
                 "<tr>
@@ -51,6 +53,7 @@ class ProductList extends AbstractPdf implements IWarrantyCardPart
                     <td>$warrantyTime hónap</td>
                     <td>$warrantyEnd</td>
                     <td>" .$orderProduct["sku"] . "</td>
+                    <td>" . $this->formatPrice($grossPrice) . "</td>
                 </tr>"
             ;
         }
@@ -65,5 +68,23 @@ class ProductList extends AbstractPdf implements IWarrantyCardPart
             ->modify("+$warrantyTime months")
             ->modify("+2 days");
         return $dateTime;
+    }
+
+    private function calculateGrossPrice($orderProduct)
+    {
+        return $orderProduct['price'] * (1 + ($orderProduct['taxRate'] / 100));
+    }
+    
+    private function formatPrice($price)
+    {
+        return number_format($price, 0, ',', '.') . ' Ft';
+    }
+
+    private function getDefaultWarrantyTime($grossPrice)
+    {
+        if ($grossPrice < 10000) {
+            return 12;
+        }
+        return 24;
     }
 }
